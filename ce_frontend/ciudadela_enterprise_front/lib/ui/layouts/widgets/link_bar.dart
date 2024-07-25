@@ -1,5 +1,5 @@
+import 'package:ciudadela_enterprise_front/ui/labels/custom_labels.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class LinkBar extends StatelessWidget {
   const LinkBar({super.key});
@@ -14,12 +14,11 @@ class LinkBar extends StatelessWidget {
       color: const Color.fromRGBO(55, 57, 63, 1),
       height: (size.width>1000)?size.height * 0.08:null,
       child: Center(
-        child: Text(
-          'Powered by MirusSmart',
-          style: GoogleFonts.ubuntu(
-            fontSize: 16,
-            color: Colors.white,
-            fontWeight: FontWeight.w200
+        child: FittedBox(
+          fit: BoxFit.contain,
+          child: Text(
+            'Powered by MirusSmart',
+            style: CustomLabels.whiteW200Size16,
           ),
         ),
       )

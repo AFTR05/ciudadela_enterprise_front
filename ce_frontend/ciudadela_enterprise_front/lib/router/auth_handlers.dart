@@ -15,9 +15,9 @@ class AuthHandlers {
         return SplashLayout();
       }
       if (authProvider.authStatus == AuthStatus.notAuthenticated) {
-        return LayoutSwitcher().usePrincipalLayout(const LoginView());
+        return LayoutSwitcher().useSimpleLayout(const LoginView());
       }else {
-        return LayoutSwitcher().usePrincipalLayout(const MainView());
+        return LayoutSwitcher().useSimpleLayout(const MainView());
       }
     }
   );
@@ -26,9 +26,9 @@ class AuthHandlers {
     handlerFunc: (context,params){
       final authProvider = Provider.of<AuthProvider>(context!);
       if (authProvider.authStatus == AuthStatus.notAuthenticated) {
-        return LayoutSwitcher().usePrincipalLayout(const SignUpView());        
+        return LayoutSwitcher().useSimpleLayout(const SignUpView());        
       } else {
-        return LayoutSwitcher().usePrincipalLayout(const MainView());       
+        return LayoutSwitcher().useSimpleLayout(const MainView());       
       }
 
     }

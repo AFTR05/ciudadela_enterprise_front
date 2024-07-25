@@ -109,16 +109,16 @@ class OrganizationStateFormContent extends StatelessWidget {
     final isValid = organizationStateFormProvider.validateForm();
     if ( isValid ) {
       NotificationsService.showBusyIndicator(context);
-      organizationProvider.guardarEstadoOrganizacion(
-                                    organizationStateFormProvider.breakeven!, 
-                                    organizationStateFormProvider.breakevenData!.complianceStrategy, 
-                                    organizationStateFormProvider.breakevenData!.achieveTime,
-                                    organizationStateFormProvider.commerceChamber!,
-                                    organizationStateFormProvider.oportunityProfile!,
-                                    organizationStateFormProvider.oportunityProfileData!.name,
-                                    organizationStateFormProvider.oportunityProfileData!.email,
-                                    organizationStateFormProvider.oportunityProfileData!.telephone
-                                  );
+      // organizationProvider.guardarEstadoOrganizacion(
+      //                               organizationStateFormProvider.breakeven!, 
+      //                               organizationStateFormProvider.breakevenData!.complianceStrategy, 
+      //                               organizationStateFormProvider.breakevenData!.achieveTime,
+      //                               organizationStateFormProvider.commerceChamber!,
+      //                               organizationStateFormProvider.oportunityProfile!,
+      //                               organizationStateFormProvider.oportunityProfileData!.name,
+      //                               organizationStateFormProvider.oportunityProfileData!.email,
+      //                               organizationStateFormProvider.oportunityProfileData!.telephone
+      //                             );
     }             
     Navigator.of(context).pop(); // Cierra el diálogo
   }

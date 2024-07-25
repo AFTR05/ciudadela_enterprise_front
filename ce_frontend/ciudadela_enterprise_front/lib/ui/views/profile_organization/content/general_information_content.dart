@@ -108,11 +108,11 @@ class GeneralInformationFormContent extends StatelessWidget {
     final isValid = generalInformationFormProvider.validateForm();
     if ( isValid ) {
       NotificationsService.showBusyIndicator(context);
-      organizationProvider.guardarInformacionGeneral(
-                                    generalInformationFormProvider.email, 
-                                    generalInformationFormProvider.direction, 
-                                    generalInformationFormProvider.telephone
-                                  );
+      // organizationProvider.guardarInformacionGeneral(
+      //                               generalInformationFormProvider.email, 
+      //                               generalInformationFormProvider.direction, 
+      //                               generalInformationFormProvider.telephone
+      //                             );
     }    
     Navigator.of(context).pop(); // Cierra el diálogo
   }

@@ -13,6 +13,7 @@ class Flurorouter {
   static String creationChannelRoute = '/organizacion/crear-organizacion';
   static String organizationProfileRoute = '/perfil-organizacion';
   static String creationOrganization = '/perfil-organizacion/crear';
+  static String enterpriseMain='/enterprise';
 
   static void configureRoutes(){
     // Auth Handler
@@ -31,6 +32,8 @@ class Flurorouter {
     router.define(creationOrganization, handler: OrganizationHandlers.creationOrganization,
       transitionType: TransitionType.none
     );
+
+
 
     //no page found
     router.notFoundHandler = NoPageFoundHandlers.noPageFound;

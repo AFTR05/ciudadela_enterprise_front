@@ -1,5 +1,5 @@
 import 'package:ciudadela_enterprise_front/providers/auth_provider.dart';
-import 'package:ciudadela_enterprise_front/ui/layouts/custom_scaffold.dart';
+import 'package:ciudadela_enterprise_front/services/layout_switcher.dart';
 import 'package:ciudadela_enterprise_front/ui/layouts/splash/splash_layout.dart';
 import 'package:ciudadela_enterprise_front/ui/views/login_view.dart';
 import 'package:ciudadela_enterprise_front/ui/views/profile_organization/creation_organization_profile_view.dart';
@@ -11,12 +11,13 @@ class OrganizationHandlers {
   static Handler mainOrganizationProfile = Handler(
     handlerFunc: (context,params){
       final authProvider = Provider.of<AuthProvider>(context!);
-      if ( authProvider.authStatus == AuthStatus.checking )
+      if ( authProvider.authStatus == AuthStatus.checking ) {
         return SplashLayout();
+      }
       if (authProvider.authStatus == AuthStatus.notAuthenticated) {
-        return PrincipalLayout(child: const LoginView());
+        return LayoutSwitcher().useSimpleLayout(const LoginView());
       }else {
-        return PrincipalLayout(child: const ProfileOrganizationBeginView());
+        return LayoutSwitcher().useSimpleLayout(const ProfileOrganizationBeginView());
       }
     }
   );
@@ -27,9 +28,9 @@ class OrganizationHandlers {
       if ( authProvider.authStatus == AuthStatus.checking )
         return SplashLayout();
       if (authProvider.authStatus == AuthStatus.notAuthenticated) {
-        return PrincipalLayout(child: const LoginView());
+        return LayoutSwitcher().useSimpleLayout(const LoginView());
       }else {
-        return PrincipalLayout(child: const CreationOrganizationProfileView());
+        return LayoutSwitcher().useSimpleLayout(const CreationOrganizationProfileView());
       }
     }
   );

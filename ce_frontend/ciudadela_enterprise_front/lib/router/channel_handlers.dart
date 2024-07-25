@@ -14,9 +14,9 @@ class ChannelHandlers {
       if ( authProvider.authStatus == AuthStatus.checking )
         return SplashLayout();
       if (authProvider.authStatus == AuthStatus.notAuthenticated) {
-        return LayoutSwitcher().usePrincipalLayout(const LoginView());
+        return LayoutSwitcher().useSimpleLayout(const LoginView());
       }else {
-        return LayoutSwitcher().usePrincipalLayout(const MainView());  
+        return LayoutSwitcher().useSimpleLayout(const MainView());  
       }
     }
   );
@@ -27,9 +27,9 @@ class ChannelHandlers {
       if ( authProvider.authStatus == AuthStatus.checking )
         return SplashLayout();
       if (authProvider.authStatus == AuthStatus.notAuthenticated) {
-        return LayoutSwitcher().usePrincipalLayout(const LoginView());
+        return LayoutSwitcher().useSimpleLayout(const LoginView());
       }else {
-        return LayoutSwitcher().usePrincipalLayout(const NewChannelView());  
+        return LayoutSwitcher().useSimpleLayout(const NewChannelView());  
       }
     }
   );

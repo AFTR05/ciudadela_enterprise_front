@@ -1,27 +1,28 @@
-import 'package:ciudadela_enterprise_front/ui/labels/custom_labels.dart';
+
 import 'package:ciudadela_enterprise_front/ui/layouts/widgets/link_bar.dart';
+import 'package:ciudadela_enterprise_front/ui/layouts/widgets/top_bar.dart'; 
 import 'package:flutter/material.dart';
 
 class PrincipalLayout extends StatelessWidget {
   final Widget child;
+  final Widget topBar;
 
-  PrincipalLayout({super.key, required this.child});
+  PrincipalLayout({super.key, required this.child, required this.topBar});
 
   final ScrollController _scrollController = ScrollController(initialScrollOffset: 0);
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
         children: [
           Container(
-            height: 100.0,
+            height: (size.width>1000)?size.height * 0.1:null,
+            
             color: const Color.fromRGBO(55, 57, 63, 1),
             child: Center(
-              child: Text(
-                'Enterprise',
-                style: CustomLabels.enterpriseTitle,
-              ),
+              child: topBar,
             ),
           ),
           Expanded(
@@ -31,7 +32,9 @@ class PrincipalLayout extends StatelessWidget {
                 controller: _scrollController,
                 physics: const ClampingScrollPhysics(),
                 children: <Widget>[
-                  child,
+                  Center(
+                    child: child,
+                  ),
                 ],
               ),
             ),

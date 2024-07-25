@@ -19,6 +19,12 @@ class CustomLabels {
     color: Colors.white
   );
 
+  static TextStyle whiteW200Size16= GoogleFonts.ubuntu(
+    fontSize: 16,
+    fontWeight: FontWeight.w200,
+    color: Colors.white
+  );
+
   static TextStyle title32W400White= GoogleFonts.ubuntu(
     fontSize: 32,
     fontWeight: FontWeight.w400,
