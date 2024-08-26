@@ -1,42 +1,62 @@
+  import 'package:ciudadela_enterprise_front/router/router.dart';
+import 'package:ciudadela_enterprise_front/services/navigation_service.dart';
 import 'package:ciudadela_enterprise_front/ui/buttons/custom_enterprise_navigation_button.dart';
-import 'package:flutter/material.dart';
+  import 'package:flutter/material.dart';
 
-class NavigationMenu extends StatefulWidget {
-  const NavigationMenu({super.key});
+  class NavigationMenu extends StatefulWidget {
 
-  @override
-  State<NavigationMenu> createState() => _NavigationMenuState();
-}
+    final int defaultSelectedButton; 
 
-class _NavigationMenuState extends State<NavigationMenu> {
-  int _selectedButton = 0;
+  const NavigationMenu({super.key, required this.defaultSelectedButton}); 
 
-  void _onButtonPressed(int selectedButton) {
-    setState(() {
-      _selectedButton = selectedButton;
-    });
+    @override
+    State<NavigationMenu> createState() => _NavigationMenuState();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        CustomEnterpriseNavigationButton(
-          onPressed: () => _onButtonPressed(0),
-          text: "Resumen",
-          isSelected: _selectedButton == 0,
-        ),
-        CustomEnterpriseNavigationButton(
-          onPressed: () => _onButtonPressed(1),
-          text: "Tienda",
-          isSelected: _selectedButton == 1,
-        ),
-        CustomEnterpriseNavigationButton(
-          onPressed: () => _onButtonPressed(2),
-          text: "Perfil",
-          isSelected: _selectedButton == 2,
-        ),
-      ],
-    );
+  class _NavigationMenuState extends State<NavigationMenu> {
+    late int _selectedButton;
+
+    @override
+    void initState() {
+      super.initState();
+      _selectedButton = widget.defaultSelectedButton;
+    }
+
+    void _onButtonPressed(int selectedButton) {
+      setState(() {
+        _selectedButton = selectedButton;
+      });
+    }
+
+    @override
+    Widget build(BuildContext context) {
+      return Row(
+        children: [
+          CustomEnterpriseNavigationButton(
+            onPressed: () {
+              NavigationService.replaceTo(Flurorouter.enterpriseResume);
+              
+            },
+            text: "Resumen",
+            isSelected: _selectedButton == 0,
+          ),
+          CustomEnterpriseNavigationButton(
+            onPressed: () {
+              NavigationService.replaceTo(Flurorouter.enterpriseShop);
+              
+            },
+            text: "Tienda",
+            isSelected: _selectedButton == 1,
+          ),
+          CustomEnterpriseNavigationButton(
+            onPressed: () {
+              NavigationService.replaceTo(Flurorouter.enterpriseProfile);
+              
+            },
+            text: "Perfil",
+            isSelected: _selectedButton == 2,
+          ),
+        ],
+      );
+    }
   }
-}

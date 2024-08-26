@@ -1,11 +1,12 @@
 import 'package:ciudadela_enterprise_front/router/auth_handlers.dart';
 import 'package:ciudadela_enterprise_front/router/channel_handlers.dart';
+import 'package:ciudadela_enterprise_front/router/enterprise_handlers.dart';
 import 'package:ciudadela_enterprise_front/router/no_page_found_handlers.dart';
 import 'package:ciudadela_enterprise_front/router/organization_handlers.dart';
 import 'package:fluro/fluro.dart';
 
 class Flurorouter {
-  static final FluroRouter router = new FluroRouter();
+  static final FluroRouter router = FluroRouter();
   static String rootRoute = '/';
   static String loginRoute = '/autenticarse';
   static String signUpRoute = '/crearcuentausuario';
@@ -14,6 +15,12 @@ class Flurorouter {
   static String organizationProfileRoute = '/perfil-organizacion';
   static String creationOrganization = '/perfil-organizacion/crear';
   static String enterpriseMain='/enterprise';
+  static String enterpriseResume='/enterprise/resumen';
+  static String enterpriseShop='/enterprise/shop';
+  static String enterpriseProfile='/enterprise/perfil';
+  static String enterpriseResumeOwnModules='/enterprise/resumen/mis-modulos';
+  static String enterpriseResumeOwnValorations='/enterprise/resumen/mis-valoraciones';
+  static String enterpriseOwnModulesProfile='/enterprise/resumen/mis-modulos/detalles';
 
   static void configureRoutes(){
     // Auth Handler
@@ -33,7 +40,14 @@ class Flurorouter {
       transitionType: TransitionType.none
     );
 
-
+    // enterprise
+    router.define(enterpriseMain, handler: EnterpriseHandlers.enterpriseResume, transitionType: TransitionType.none);
+    router.define(enterpriseResume, handler: EnterpriseHandlers.enterpriseResume, transitionType: TransitionType.none);
+    router.define(enterpriseShop, handler: EnterpriseHandlers.enterpriseShop, transitionType: TransitionType.none);
+    router.define(enterpriseResumeOwnModules, handler: EnterpriseHandlers.enterpriseOwnModules, transitionType: TransitionType.cupertino);
+    router.define(enterpriseOwnModulesProfile, handler: EnterpriseHandlers.enterpriseOwnModulesDetails, transitionType: TransitionType.cupertino);
+    router.define(enterpriseResumeOwnValorations, handler: EnterpriseHandlers.enterpriseOwnValorations, transitionType: TransitionType.cupertino);
+    router.define(enterpriseProfile, handler: EnterpriseHandlers.enterpriseProfile, transitionType: TransitionType.none);
 
     //no page found
     router.notFoundHandler = NoPageFoundHandlers.noPageFound;

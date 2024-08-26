@@ -42,17 +42,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Ciudadela Enterprise',
+      title: 'Ciudadela Enterprise',  
       initialRoute: '/',
       onGenerateRoute: Flurorouter.router.generator,
       navigatorKey: NavigationService.navigatorKey,
       scaffoldMessengerKey: NotificationsService.messengerKey,
       theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: const Color.fromRGBO(36, 37, 41,1),
         scrollbarTheme: const ScrollbarThemeData().copyWith(
           thumbColor: MaterialStateProperty.all(
             Colors.grey
           )
-        )    
+        ),
+        
       )
     );
   }

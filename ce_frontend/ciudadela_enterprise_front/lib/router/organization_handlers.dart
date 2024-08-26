@@ -25,8 +25,9 @@ class OrganizationHandlers {
   static Handler creationOrganization = Handler(
     handlerFunc: (context,params){
       final authProvider = Provider.of<AuthProvider>(context!);
-      if ( authProvider.authStatus == AuthStatus.checking )
+      if ( authProvider.authStatus == AuthStatus.checking ) {
         return SplashLayout();
+      }
       if (authProvider.authStatus == AuthStatus.notAuthenticated) {
         return LayoutSwitcher().useSimpleLayout(const LoginView());
       }else {

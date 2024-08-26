@@ -7,12 +7,12 @@ class LayoutSwitcher{
     return PrincipalLayout(topBar: TopBar().basicTop(),child: widget);
   }
 
-  Widget useNavigationEnterpriseLayout(Widget widget){
-    return PrincipalLayout(topBar: TopBar().enterpriseMain(true),child: widget);
+  Widget useNavigationEnterpriseLayout(Widget widget, int defaultNavigation){
+    return PrincipalLayout(topBar: TopBar().enterpriseMain(defaultNavigation),child: widget);
   }
 
   Widget useSimpleEnterpriseLayout(Widget widget){
-    return PrincipalLayout(topBar: TopBar().enterpriseMain(false),child: widget);
+    return PrincipalLayout(topBar: TopBar().enterpriseSecondary(),child: widget);
   }
   
 }

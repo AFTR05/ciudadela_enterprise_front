@@ -99,7 +99,6 @@ class AuthProvider with ChangeNotifier, SharedPreferencesMixin {
 
 
   void isAuthenticated() async{
-    final prueba=await getString('user');
     await getString('token');
     _token = (await getString('token')) ?? '';
     if (_token.isNotEmpty) {
