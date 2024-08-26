@@ -47,8 +47,7 @@ class Flurorouter {
     router.define(enterpriseResumeOwnModules, handler: EnterpriseHandlers.enterpriseOwnModules, transitionType: TransitionType.cupertino);
     router.define(enterpriseOwnModulesProfile, handler: EnterpriseHandlers.enterpriseOwnModulesDetails, transitionType: TransitionType.cupertino);
     router.define(enterpriseResumeOwnValorations, handler: EnterpriseHandlers.enterpriseOwnValorations, transitionType: TransitionType.cupertino);
-    router.define(enterpriseProfile, handler: EnterpriseHandlers.enterpriseProfile, transitionType: TransitionType.none);
-
+    
     //no page found
     router.notFoundHandler = NoPageFoundHandlers.noPageFound;
   }

@@ -7,7 +7,6 @@ import 'package:ciudadela_enterprise_front/ui/views/enterprise_module_details_vi
 import 'package:ciudadela_enterprise_front/ui/views/enterprise_resume_view.dart';
 import 'package:ciudadela_enterprise_front/ui/views/enterprise_shop_view.dart';
 import 'package:ciudadela_enterprise_front/ui/views/login_view.dart';
-import 'package:ciudadela_enterprise_front/ui/views/organization_profile_view.dart';
 import 'package:fluro/fluro.dart';
 import 'package:provider/provider.dart';
 
@@ -40,19 +39,7 @@ class EnterpriseHandlers {
     }
   );
 
-  static Handler enterpriseProfile = Handler(
-    handlerFunc: (context,params){
-      final authProvider = Provider.of<AuthProvider>(context!);
-      if ( authProvider.authStatus == AuthStatus.checking ) {
-        return SplashLayout();
-      }
-      if (authProvider.authStatus == AuthStatus.notAuthenticated) {
-        return LayoutSwitcher().useSimpleLayout(const LoginView());
-      }else {
-        return LayoutSwitcher().useNavigationEnterpriseLayout(const OrganizationProfileView(),2);  
-      }
-    }
-  );
+
 
   static Handler enterpriseOwnModules = Handler(
     handlerFunc: (context,params){

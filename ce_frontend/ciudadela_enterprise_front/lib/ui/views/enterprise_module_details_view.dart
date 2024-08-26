@@ -33,7 +33,7 @@ class EnterpriseModuleDetailsView extends StatelessWidget {
                     style: CustomLabels.tab16W400White,
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
-                        NavigationService.navigateTo(Flurorouter.enterpriseOwnModulesProfile);
+                        NavigationService.navigateTo(Flurorouter.enterpriseResumeOwnModules);
                       }
                   ),
                   TextSpan(

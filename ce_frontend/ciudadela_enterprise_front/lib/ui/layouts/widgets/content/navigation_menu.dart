@@ -50,8 +50,6 @@ import 'package:ciudadela_enterprise_front/ui/buttons/custom_enterprise_navigati
           ),
           CustomEnterpriseNavigationButton(
             onPressed: () {
-              NavigationService.replaceTo(Flurorouter.enterpriseProfile);
-              
             },
             text: "Perfil",
             isSelected: _selectedButton == 2,
