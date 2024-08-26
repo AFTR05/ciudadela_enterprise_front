@@ -11,33 +11,31 @@ class OtherEntityForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ecosystemParticipationFormProvider = Provider.of<EcosystemParticipationFormProvider>(context);
-    return Container(
-      child: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(
-            maxWidth: 352
-          ),
-          child: Form(
-            autovalidateMode: AutovalidateMode.always,
-            child: Column(
-              children: [
-                const SizedBox(height: 25),
-                TextFormField( 
-                    onChanged: (value){
-                      ecosystemParticipationFormProvider.otherEntityData=value;
-                      ecosystemParticipationFormProvider.updateButtonState();
-                    },
-                    validator: (value){
-                      return !Validator.emptyValidator(value)
-                                ? 'El campo no puede estar vacío'
-                                : null;
-                    },
-                    style: CustomLabels.whiteW300Size16,
-                    decoration: CustomInput.inputDecoration(hint: 'Ingresa la otra entidad', label: '¿Cuál?'),
-                    )
-              ]
-            )
-          ),
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(
+          maxWidth: 352
+        ),
+        child: Form(
+          autovalidateMode: AutovalidateMode.always,
+          child: Column(
+            children: [
+              const SizedBox(height: 25),
+              TextFormField( 
+                  onChanged: (value){
+                    ecosystemParticipationFormProvider.otherEntityData=value;
+                    ecosystemParticipationFormProvider.updateButtonState();
+                  },
+                  validator: (value){
+                    return !Validator.emptyValidator(value)
+                              ? 'El campo no puede estar vacío'
+                              : null;
+                  },
+                  style: CustomLabels.whiteW300Size16,
+                  decoration: CustomInput.inputDecoration(hint: 'Ingresa la otra entidad', label: '¿Cuál?'),
+                  )
+            ]
+          )
         ),
       ),
     );

@@ -15,7 +15,7 @@ class BreakevenForm extends StatelessWidget {
         
     return Center(
         child: ConstrainedBox(
-          constraints: BoxConstraints(
+          constraints: const BoxConstraints(
             maxWidth: 352
           ),
           child: Form(
